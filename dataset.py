@@ -92,19 +92,19 @@ train_dataloader = DataLoader(
     batch_size=16,
     shuffle=True,
     pin_memory=True,
-    num_workers=4)
+    num_workers=2)
 
 validation_dataloader = DataLoader(
     validation_data,
     batch_size=16,
     shuffle=True,
     pin_memory=True,
-    num_workers=4)
+    num_workers=2)
 
 test_dataloader = DataLoader(
     test_data,
     batch_size=16,
     shuffle=False,
     pin_memory=True,
-    num_workers=4
+    num_workers=2
 )
