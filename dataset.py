@@ -21,7 +21,7 @@ class IP102Dataset(Dataset):
 
     def __getitem__(self, idx):
         image_rel_path, label = self.samples[idx]
-        image_path = os.path.join(self.image_root, image_rel_path)
+        image_path = os.path.join(self.image_root, str(label), image_rel_path)
         image = Image.open(image_path).convert('RGB')
 
         if self.transform:
