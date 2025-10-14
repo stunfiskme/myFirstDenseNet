@@ -69,20 +69,20 @@ train_transform = transforms.Compose([
 
 # Dataset 
 training_data = IP102Dataset(
-    split_file="data/ip102_v1.1-001/ip102_v1.1/train.txt",
-    image_root="data/ip102_v1.1-001/ip102_v1.1/images",
+    split_file="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/train.txt",
+    image_root="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/images",
     transform=train_transform
 )
 
 validation_data = IP102Dataset(
-    split_file="data/ip102_v1.1-001/ip102_v1.1/val.txt",
-    image_root="data/ip102_v1.1-001/ip102_v1.1/images",
+    split_file="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/val.txt",
+    image_root="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/images",
     transform=train_transform
 )
 
 test_data = IP102Dataset(
-    split_file="data/ip102_v1.1-001/ip102_v1.1/test.txt",
-    image_root="data/ip102_v1.1-001/ip102_v1.1/images",
+    split_file="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/test.txt",
+    image_root="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/images",
     transform=transform
 )
 
