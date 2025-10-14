@@ -71,7 +71,7 @@ training_data = IP102Dataset(
 )
 
 validation_data = IP102Dataset(
-    split_file="ip102_v1.1-001/ip102_v1.1/val.txt",
+    split_file="/content/ip02-dataset/val.txt",
     image_root="/content/ip02-dataset/classification/val",
     transform=train_transform
 )
