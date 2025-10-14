@@ -48,7 +48,7 @@ class Transition(nn.Module):
 
 # DenseNet Model
 class DenseNet(nn.Module):
-    def __init__(self, block_config=(6, 12, 24, 16), growth_rate=32, reduction=0.5, num_classes=106):
+    def __init__(self, block_config=(6, 12, 24, 16), growth_rate=24, reduction=0.5, num_classes=106):
         super(DenseNet, self).__init__()
         self.growth_rate = growth_rate
         num_init_features = 2 * growth_rate
