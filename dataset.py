@@ -2,7 +2,7 @@ import os
 from PIL import Image
 from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
-
+import torch
 
 # Custom IP102 dataset
 class IP102Dataset(Dataset):
@@ -22,16 +22,12 @@ class IP102Dataset(Dataset):
     def __getitem__(self, idx):
         image_rel_path, label = self.samples[idx]
         image_path = os.path.join(self.image_root, image_rel_path)
-
-        try:
-            image = Image.open(image_path).convert('RGB')
-        except FileNotFoundError:
-            raise FileNotFoundError(f"Image file not found: {image_path}")
+        image = Image.open(image_path).convert('RGB')
 
         if self.transform:
             image = self.transform(image)
 
-        return image, label
+        return image, torch.tensor(label, dtype=torch.long)
 
 #
 gaussian_blur = transforms.GaussianBlur(kernel_size=(7, 7), sigma=(0.1, 2.0))
@@ -69,20 +65,20 @@ train_transform = transforms.Compose([
 
 # Dataset 
 training_data = IP102Dataset(
-    split_file="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/train.txt",
-    image_root="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/images",
+    split_file="/content/ip02-dataset/train.txt",
+    image_root="/content/ip02-dataset/classification/train",
     transform=train_transform
 )
 
 validation_data = IP102Dataset(
-    split_file="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/val.txt",
-    image_root="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/images",
+    split_file="ip102_v1.1-001/ip102_v1.1/val.txt",
+    image_root="/content/ip02-dataset/classification/val",
     transform=train_transform
 )
 
 test_data = IP102Dataset(
-    split_file="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/test.txt",
-    image_root="/content/myFirstDenseNet/data/content/drive/MyDrive/data/ip102_v1.1-001/ip102_v1.1/images",
+    split_file="/content/ip02-dataset/test.txt",
+    image_root="/content/ip02-dataset/classification/test",
     transform=transform
 )
 
