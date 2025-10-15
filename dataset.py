@@ -65,20 +65,20 @@ train_transform = transforms.Compose([
 
 # Dataset 
 training_data = IP102Dataset(
-    split_file="/content/ip02-dataset/train.txt",
-    image_root="/content/ip02-dataset/classification/train",
+    split_file="/content/myFirstDenseNet/ip02-dataset/train.txt",
+    image_root="/content/myFirstDenseNet/ip02-dataset/classification/train",
     transform=train_transform
 )
 
 validation_data = IP102Dataset(
-    split_file="/content/ip02-dataset/val.txt",
-    image_root="/content/ip02-dataset/classification/val",
+    split_file="/content/myFirstDenseNet/ip02-dataset/val.txt",
+    image_root="/content/myFirstDenseNet/ip02-dataset/classification/val",
     transform=train_transform
 )
 
 test_data = IP102Dataset(
-    split_file="/content/ip02-dataset/test.txt",
-    image_root="/content/ip02-dataset/classification/test",
+    split_file="/content/myFirstDenseNet/ip02-dataset/test.txt",
+    image_root="/content/myFirstDenseNet/ip02-dataset/classification/test",
     transform=transform
 )
 
